@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Little 的个人洞洞板——照片、爱好、生活片段，还有一些正在发生的小故事。">
+  <meta name="theme-color" content="#efe5d2">
+  <title>Little's 洞洞板</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23f2ead9'/%3E%3Cg fill='%238b7d67'%3E%3Ccircle cx='16' cy='16' r='3'/%3E%3Ccircle cx='32' cy='16' r='3'/%3E%3Ccircle cx='48' cy='16' r='3'/%3E%3Ccircle cx='16' cy='32' r='3'/%3E%3Ccircle cx='48' cy='32' r='3'/%3E%3Ccircle cx='16' cy='48' r='3'/%3E%3Ccircle cx='32' cy='48' r='3'/%3E%3Ccircle cx='48' cy='48' r='3'/%3E%3C/g%3E%3Crect x='23' y='20' width='18' height='26' rx='4' fill='%23f4bd4d' stroke='%23312d26' stroke-width='2.5'/%3E%3Ccircle cx='32' cy='23' r='2.2' fill='%23312d26'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+  <div class="viewport">
+    <div class="stage" id="stage">
+      <main class="board" id="board" aria-label="Little 的洞洞板作品集">
+        <div class="board-light" aria-hidden="true"></div>
+
+        <!-- 手写品牌区 -->
+        <header class="identity">
+          <span class="identity-mark" aria-hidden="true">L.</span>
+          <div class="identity-copy">
+            <h1 data-bind="meta.brand">HUANG'S PEGBOARD</h1>
+            <p><span data-bind="meta.brandSub">little stories, pinned up</span> <span>·</span> portfolio <span data-bind="meta.year">2026</span></p>
+          </div>
+        </header>
+
+        <div class="top-actions">
+          <span class="top-tip" data-bind="ui.topTip">拖动挂件 · 点击展开</span>
+          <button class="tidy-btn" id="tidyBtn" type="button" title="把所有挂件放回原位">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.2 7.2A6.7 6.7 0 1 1 3.5 11" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M1.8 3.8v4.1h4.1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-bind="ui.tidy">TIDY UP</span>
+          </button>
+        </div>
+
+        <!-- 01 关于我 -->
+        <div class="piece-wrap" data-piece="about" data-open="about" data-x="72" data-y="95" style="--w:188px; --accent:#f4bd4d; --sway-dur:7.4s; --sway-delay:.4s;">
+          <div class="piece-swing">
+            <div class="hanger" aria-hidden="true">
+              <svg viewBox="0 0 52 58"><use href="#peg-hook"/></svg>
+            </div>
+            <div class="piece-tilt">
+              <button class="piece piece--about" type="button" aria-label="打开关于我：Little 的个人简介">
+                <span class="grommet" aria-hidden="true"></span>
+                <span class="tag-eyebrow" data-bind="about.tagEyebrow">01 / HELLO</span>
+                <span class="tag-title" data-bind="about.tagTitle" data-multiline>ABOUT<br>ME</span>
+                <span class="tag-cn" data-bind="about.tagCn">个人简介</span>
+                <span class="tag-rule" aria-hidden="true"></span>
+                <span class="tag-lines" data-bind="about.tagLines" data-multiline>brand designer<br>coffee person<br>professional overthinker</span>
+                <span class="tag-link"><span data-bind="about.tagCta">click to open</span> <span aria-hidden="true">↗</span></span>
+                <span class="barcode" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+          <div class="keychain" aria-hidden="true">
+            <svg viewBox="0 0 110 150">
+              <path d="M51 21c-12 5-14 17-11 27" fill="none" stroke="#6f6251" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="50" cy="21" r="13" fill="none" stroke="#8c877e" stroke-width="6"/>
+              <circle cx="50" cy="21" r="13" fill="none" stroke="#d7d2c8" stroke-width="2"/>
+              <g transform="rotate(14 48 56)">
+                <circle cx="48" cy="38" r="5" fill="#a49c8d" stroke="#6e675b" stroke-width="1.5"/>
+                <path d="M48 43v12" stroke="#8f8676" stroke-width="4" stroke-linecap="round"/>
+                <path d="M48 53c-3 9-3 15 0 22" fill="none" stroke="#a28e55" stroke-width="9" stroke-linecap="round"/>
+                <path d="M48 53c-3 9-3 15 0 22" fill="none" stroke="#d2b96e" stroke-width="5" stroke-linecap="round"/>
+                <path d="M43 72v9m3-10v11m-7-3 1 5" stroke="#8a763f" stroke-width="3" stroke-linecap="round"/>
+              </g>
+              <g transform="rotate(-18 77 63)">
+                <circle cx="77" cy="46" r="4.5" fill="#a49c8d" stroke="#6e675b" stroke-width="1.5"/>
+                <path d="M77 51v9" stroke="#8f8676" stroke-width="3.5"/>
+                <path d="M77 59c-4 11-4 21 0 30" fill="none" stroke="#a28e55" stroke-width="8" stroke-linecap="round"/>
+                <path d="M77 59c-4 11-4 21 0 30" fill="none" stroke="#dfc67c" stroke-width="4" stroke-linecap="round"/>
+                <path d="M72 87v8m5-10v11m-9-2 1 5" stroke="#8a763f" stroke-width="3" stroke-linecap="round"/>
+              </g>
+              <g transform="rotate(28 31 67)">
+                <circle cx="31" cy="52" r="4" fill="#a49c8d" stroke="#6e675b" stroke-width="1.4"/>
+                <path d="M31 56v8" stroke="#8f8676" stroke-width="3"/>
+                <path d="M31 63c-3 8-3 16 0 22" fill="none" stroke="#9f8b52" stroke-width="7" stroke-linecap="round"/>
+                <path d="M31 63c-3 8-3 16 0 22" fill="none" stroke="#ceb26c" stroke-width="3.5" stroke-linecap="round"/>
+              </g>
+              <path d="M46 92c8 8 9 14 5 22" fill="none" stroke="#756854" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- 02 精选作品 -->
+        <div class="piece-wrap" data-piece="works" data-open="works" data-x="452" data-y="58" style="--w:442px; --accent:#d7e6b2; --sway-dur:8.4s; --sway-delay:1.2s;">
+          <div class="piece-swing">
+            <div class="hanger" aria-hidden="true">
+              <svg viewBox="0 0 52 58"><use href="#peg-hook"/></svg>
+            </div>
+            <div class="piece-tilt">
+              <button class="piece piece--works" type="button" aria-label="打开精选作品：四段照片回忆">
+                <span class="works-washi" aria-hidden="true"></span>
+                <span class="works-screw works-screw--tl" aria-hidden="true"></span>
+                <span class="works-screw works-screw--tr" aria-hidden="true"></span>
+                <span class="works-screw works-screw--bl" aria-hidden="true"></span>
+                <span class="works-screw works-screw--br" aria-hidden="true"></span>
+                <span class="works-head">
+                  <span class="works-number">02</span>
+                  <span class="works-heading">
+                    <span class="works-kicker" data-bind="works.kicker">A SMALL COLLECTION</span>
+                    <span class="works-title" data-bind="works.title" data-multiline>SELECTED<br>WORKS</span>
+                    <span class="works-cn" data-bind="works.cn">精选作品</span>
+                  </span>
+                  <span class="works-arrow" aria-hidden="true">↗</span>
+                </span>
+                <span class="works-intro" data-bind="works.intro" data-multiline>Branding, packaging and little printed things.<br>Made with curiosity, warm colours and too much coffee.</span>
+                <span class="works-grid">
+                  <span class="work-tile">
+                    <svg class="work-art" viewBox="0 0 200 126" role="img" aria-label="Sunshine 果汁包装项目">
+                      <rect width="200" height="126" fill="#e76643"/>
+                      <circle cx="151" cy="35" r="45" fill="#f8cc61"/>
+                      <g stroke="#f8cc61" stroke-width="3" stroke-linecap="round" opacity=".9">
+                        <path d="M151 0v-9M151 79v9M107 35h-9M195 35h9M120 4l-6-6M182 66l6 6M182 4l6-6M120 66l-6 6"/>
+                      </g>
+                      <path d="M0 97c33-13 61-9 88 4 35 17 73 16 112-7v32H0Z" fill="#c94c32" opacity=".7"/>
+                      <g transform="rotate(-7 83 78)">
+                        <rect x="55" y="45" width="56" height="70" rx="5" fill="#fbf2dc" stroke="#4a3529" stroke-width="2"/>
+                        <path d="M55 58h56" stroke="#4a3529" stroke-width="2"/>
+                        <circle cx="83" cy="76" r="12" fill="#e76643"/>
+                        <path d="M72 76h22M83 65v22" stroke="#f8cc61" stroke-width="2.5"/>
+                        <text x="83" y="103" fill="#4a3529" font-size="9" font-weight="700" text-anchor="middle" font-family="Trebuchet MS">SUNSHINE</text>
+                      </g>
+                      <circle cx="43" cy="93" r="14" fill="#f8cc61" stroke="#4a3529" stroke-width="1.6"/>
+                      <circle cx="43" cy="93" r="9" fill="#f19a39"/>
+                      <path d="M43 84c2-4 6-5 8-4-1 4-4 6-8 4Z" fill="#65815b"/>
+                    </svg>
+                    <span class="work-meta"><b data-bind="works.projects.0.title">SUNSHINE</b><i><span data-bind="works.projects.0.label">packaging</span> · <span data-bind="works.projects.0.year">2024</span></i></span>
+                  </span>
+                  <span class="work-tile">
+                    <svg class="work-art" viewBox="0 0 200 126" role="img" aria-label="Momo Tea 品牌项目">
+                      <rect width="200" height="126" fill="#b9d2ba"/>
+                      <path d="M0 0h200v126H0z" fill="none" stroke="#426453" stroke-width="7"/>
+                      <circle cx="160" cy="24" r="30" fill="#e9a78f" opacity=".7"/>
+                      <path d="M25 113c20-26 35-29 53-12 15 14 35 12 54-7 18-17 34-13 43 0" fill="none" stroke="#7fa48b" stroke-width="2"/>
+                      <g transform="rotate(5 101 70)">
+                        <rect x="76" y="27" width="50" height="78" rx="10" fill="#315d4b" stroke="#273d32" stroke-width="2"/>
+                        <rect x="82" y="35" width="38" height="34" rx="4" fill="#f1e7cf"/>
+                        <text x="101" y="50" fill="#315d4b" font-size="9" font-weight="800" text-anchor="middle" font-family="Trebuchet MS">MOMO</text>
+                        <text x="101" y="61" fill="#315d4b" font-size="6.5" letter-spacing="1.4" text-anchor="middle" font-family="Trebuchet MS">TEA HOUSE</text>
+                        <circle cx="101" cy="82" r="8" fill="#e5a08a"/>
+                        <path d="M101 76v12M95 82h12" stroke="#f1e7cf" stroke-width="2"/>
+                      </g>
+                      <path d="M54 96c-9-14-7-27 1-37 6 13 6 26-1 37Z" fill="#6e9278"/>
+                      <path d="M145 92c10-8 17-7 23-1-9 5-16 6-23 1Z" fill="#6e9278"/>
+                    </svg>
+                    <span class="work-meta"><b data-bind="works.projects.1.title">MOMO TEA</b><i><span data-bind="works.projects.1.label">identity</span> · <span data-bind="works.projects.1.year">2024</span></i></span>
+                  </span>
+                  <span class="work-tile">
+                    <svg class="work-art" viewBox="0 0 200 126" role="img" aria-label="Wave Fest 海报项目">
+                      <rect width="200" height="126" fill="#294b73"/>
+                      <circle cx="128" cy="39" r="30" fill="#f1c96d"/>
+                      <path d="M0 79c24-13 44-12 65 2 28 19 58 19 87-2 17-12 33-12 48-4v51H0Z" fill="#e3ddc8"/>
+                      <path d="M0 90c31-13 51-7 73 8 24 16 55 14 79-1 18-11 33-12 48-5v34H0Z" fill="#5f92aa"/>
+                      <path d="M0 105c29-9 50-3 74 9 21 11 42 9 62 0 22-10 42-10 64 1v11H0Z" fill="#1d3655"/>
+                      <g fill="#f3ead4" font-family="Trebuchet MS" text-anchor="middle">
+                        <text x="100" y="19" font-size="8" letter-spacing="3.4">SEASIDE MUSIC &amp; ARTS</text>
+                        <text x="100" y="47" font-size="30" font-weight="800" letter-spacing="1.5">WAVE</text>
+                        <text x="100" y="60" font-size="9" letter-spacing="4">FESTIVAL</text>
+                      </g>
+                      <path d="M155 11h25M155 15h20M155 19h12" stroke="#f3ead4" stroke-width="1" opacity=".8"/>
+                    </svg>
+                    <span class="work-meta"><b data-bind="works.projects.2.title">WAVE FEST</b><i><span data-bind="works.projects.2.label">poster</span> · <span data-bind="works.projects.2.year">2023</span></i></span>
+                  </span>
+                  <span class="work-tile">
+                    <svg class="work-art" viewBox="0 0 200 126" role="img" aria-label="Field Notes 编辑设计项目">
+                      <rect width="200" height="126" fill="#e6dcc4"/>
+                      <path d="M0 0h200v126H0z" fill="none" stroke="#65593f" stroke-width="5"/>
+                      <g stroke="#8b9a70" fill="none" stroke-width="1.4">
+                        <path d="M143 107c-9-15-8-39 8-56 9-10 18-15 28-17"/>
+                        <path d="M156 68c8-8 17-9 22-6-3 9-12 14-22 6Z" fill="#9eaf7e" stroke="none"/>
+                        <path d="M147 82c-9-2-14-8-14-14 8-2 15 4 14 14Z" fill="#7e9565" stroke="none"/>
+                        <path d="M164 54c6-10 14-13 22-12-1 9-9 16-22 12Z" fill="#b3bd89" stroke="none"/>
+                        <path d="M137 92c-7 1-12-3-14-8 6-2 12 1 14 8Z" fill="#9eaf7e" stroke="none"/>
+                      </g>
+                      <text x="19" y="31" fill="#4d4432" font-size="8" letter-spacing="2.6" font-family="Trebuchet MS">FIELD NOTES / VOL. 04</text>
+                      <text x="18" y="64" fill="#3f382b" font-size="29" font-weight="700" font-family="Georgia">Slow</text>
+                      <text x="18" y="88" fill="#3f382b" font-size="29" font-weight="700" font-family="Georgia">mornings.</text>
+                      <path d="M19 99h58" stroke="#b0714f" stroke-width="2"/>
+                      <text x="19" y="111" fill="#6f634e" font-size="6.5" letter-spacing="1.6" font-family="Trebuchet MS">ESSAYS ON LIVING GENTLY</text>
+                    </svg>
+                    <span class="work-meta"><b data-bind="works.projects.3.title">FIELD NOTES</b><i><span data-bind="works.projects.3.label">editorial</span> · <span data-bind="works.projects.3.year">2022</span></i></span>
+                  </span>
+                </span>
+                <span class="works-footer">
+                  <span><span data-bind="works.footer">4 selected projects</span> <i>·</i> <span data-bind="works.footerNote">branding / packaging / print</span></span>
+                  <span class="works-cta"><span data-bind="works.cta">OPEN THE DRAWER</span> <span aria-hidden="true">→</span></span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 经历与教育 -->
+        <div class="piece-wrap" data-piece="resume" data-open="resume" data-x="1002" data-y="112" style="--w:298px; --accent:#c7dde7; --sway-dur:8s; --sway-delay:2s;">
+          <div class="piece-swing">
+            <div class="hanger hanger--id" aria-hidden="true">
+              <svg viewBox="0 0 52 58"><use href="#peg-hook"/></svg>
+            </div>
+            <div class="piece-tilt">
+              <button class="piece piece--resume" type="button" aria-label="打开经历与教育时间线">
+                <span class="id-sleeve" aria-hidden="true"></span>
+                <span class="id-head">
+                  <span class="id-index">03</span>
+                  <span class="id-heading">ABOUT ME <em>经历信息</em></span>
+                  <span class="id-dots" aria-hidden="true">···</span>
+                </span>
+                <span class="id-main">
+                  <span class="avatar avatar--card" aria-hidden="true">
+                    <svg viewBox="0 0 120 120"><use href="#avatar-portrait"/></svg>
+                  </span>
+                  <span class="id-person">
+                    <span class="id-name" data-bind="person.name">Huang Y.</span>
+                    <span class="id-role" data-bind="person.role">Brand &amp; Packaging Designer</span>
+                    <span class="id-location" data-bind="person.location">Changsha, China</span>
+                  </span>
+                </span>
+                <span class="id-rule" aria-hidden="true"></span>
+                <span class="id-facts">
+                  <span><em>EXPERIENCE</em><b data-bind="resume.cardExperience">Brand / Visual / Packaging</b></span>
+                  <span><em>EDUCATION</em><b data-bind="resume.cardEducation">B.A. Visual Communication</b></span>
+                </span>
+                <span class="id-footer">
+                  <span class="id-status"><i></i> <span data-bind="person.availabilityLabel">OPEN TO WORK</span></span>
+                  <span class="id-view">VIEW TIMELINE <span aria-hidden="true">→</span></span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 技能 -->
+        <div class="piece-wrap" data-piece="skills" data-open="skills" data-x="129" data-y="494" style="--w:240px; --accent:#e9c9b5; --sway-dur:7.8s; --sway-delay:.9s;">
+          <div class="piece-swing">
+            <div class="hanger" aria-hidden="true">
+              <svg viewBox="0 0 52 58"><use href="#peg-hook"/></svg>
+            </div>
+            <div class="piece-tilt">
+              <button class="piece piece--skills" type="button" aria-label="打开技能与工具箱">
+                <span class="skills-shine" aria-hidden="true"></span>
+                <span class="skills-index">04</span>
+                <span class="skills-title" data-bind="skills.title">SKILLS</span>
+                <span class="skills-cn" data-bind="skills.cn">技能标签</span>
+                <span class="skills-rule" aria-hidden="true"></span>
+                <span class="skills-pills">
+                  <span data-bind="skills.pills.0">BRANDING</span>
+                  <span data-bind="skills.pills.1">PACKAGING</span>
+                  <span data-bind="skills.pills.2">VISUAL</span>
+                  <span data-bind="skills.pills.3">SOCIAL</span>
+                </span>
+                <span class="skills-foot" data-bind="skills.foot">...&amp; a very good playlist</span>
+                <span class="skills-arrow" aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 联系 -->
+        <div class="piece-wrap" data-piece="contact" data-open="contact" data-x="926" data-y="564" style="--w:306px; --accent:#e36a50; --sway-dur:8.6s; --sway-delay:1.6s;">
+          <div class="piece-swing">
+            <div class="hanger" aria-hidden="true">
+              <svg viewBox="0 0 52 58"><use href="#peg-hook"/></svg>
+            </div>
+            <div class="piece-tilt">
+              <button class="piece piece--contact" type="button" aria-label="打开联系方式">
+                <span class="airmail-border" aria-hidden="true"></span>
+                <span class="contact-inner">
+                  <span class="contact-top">
+                    <span class="contact-index">05</span>
+                    <span class="contact-heading"><span data-bind="contact.tagTitle">CONTACT</span><em data-bind="contact.tagCn">联系方法</em></span>
+                    <span class="contact-stamp" aria-hidden="true">
+                      <svg viewBox="0 0 44 52">
+                        <rect x="1.5" y="1.5" width="41" height="49" rx="3" fill="#f6e4aa" stroke="#b06f58" stroke-width="1.5" stroke-dasharray="3 2"/>
+                        <circle cx="22" cy="19" r="9" fill="#e5a04a"/>
+                        <g stroke="#e5a04a" stroke-width="1.6" stroke-linecap="round">
+                          <path d="M22 5V1M22 37v-4M8 19H4M40 19h-4M12 9l3 3M35 9l-3 3"/>
+                        </g>
+                        <path d="M12 38c7-5 13-5 20 0" fill="none" stroke="#b06f58" stroke-width="1.4"/>
+                        <text x="22" y="46" fill="#8f5b48" font-size="6" letter-spacing="1.2" text-anchor="middle" font-family="Trebuchet MS">HELLO</text>
+                      </svg>
+                    </span>
+                  </span>
+                  <span class="contact-rule" aria-hidden="true"></span>
+                  <span class="contact-lines">
+                    <span><i aria-hidden="true">✉</i> <span data-bind="person.email">1500432033@qq.com</span></span>
+                    <span><i aria-hidden="true">☎</i> <span data-bind="person.phone">183 7398 8105</span></span>
+                    <span><i aria-hidden="true">⌖</i> <span data-bind="person.location">Changsha, China</span></span>
+                  </span>
+                  <span class="contact-foot">
+                    <span data-bind="contact.miniNote">say hi, I don't bite</span>
+                    <span aria-hidden="true">→</span>
+                  </span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 小挂件：开放机会 -->
+        <div class="piece-wrap" data-piece="status" data-open="contact" data-x="1323" data-y="474" style="--w:88px; --accent:#ef9d74; --sway-dur:6.6s; --sway-delay:2.4s;">
+          <div class="piece-swing">
+            <div class="hanger hanger--mini" aria-hidden="true">
+              <svg viewBox="0 0 52 58"><use href="#peg-hook"/></svg>
+            </div>
+            <div class="piece-tilt">
+              <button class="piece piece--status" type="button" aria-label="查看工作状态：开放工作机会">
+                <span class="status-top" data-bind="person.statusTag" data-multiline>OPEN<br>TO<br>WORK</span>
+                <span class="status-hole" aria-hidden="true"></span>
+                <span class="status-body">
+                  <span class="status-dot" aria-hidden="true"></span>
+                  <span data-bind="person.availabilityShort" data-multiline>available for<br>freelance &amp; full-time</span>
+                  <span class="barcode barcode--mini" aria-hidden="true"></span>
+                  <span class="status-year" data-bind="meta.year">2026</span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 可移动卡通贴纸 -->
+        <div class="sticker-layer" id="stickerLayer" aria-label="可移动的卡通贴纸">
+          <div class="sticker-wrap" data-sticker="plane" data-x="310" data-y="158" style="--w:78px; --rot:-8deg; --float-dur:6.4s; --float-delay:.2s;">
+            <button class="sticker" type="button" aria-label="纸飞机贴纸，拖动可以移动，点击会左右摇摆" title="拖动我 · 点一下会摇摆">
+              <span class="sticker-art">
+                <svg viewBox="0 0 100 82" aria-hidden="true">
+                  <path d="M6 62c12-10 23-13 36-10" fill="none" stroke="#a28f74" stroke-width="1.7" stroke-linecap="round" stroke-dasharray="2 6"/>
+                  <path d="M19 45c8-6 14-8 21-8" fill="none" stroke="#a28f74" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 6"/>
+                  <g transform="rotate(-6 54 42)">
+                    <path d="M19 46 87 16 61 68 47 51Z" fill="#fffaf0" stroke="#fffaf0" stroke-width="9" stroke-linejoin="round"/>
+                    <path d="M19 46 87 16 61 68 47 51Z" fill="#c7dde7" stroke="#393229" stroke-width="1.9" stroke-linejoin="round"/>
+                    <path d="M47 51 87 16 61 68Z" fill="#e8c987" stroke="#393229" stroke-width="1.7" stroke-linejoin="round"/>
+                    <path d="M19 46 47 51 54 57 45 61Z" fill="#f4bd4d" stroke="#393229" stroke-width="1.7" stroke-linejoin="round"/>
+                    <path d="M47 51 54 57" fill="none" stroke="#393229" stroke-width="1.4" stroke-linecap="round"/>
+                  </g>
+                  <path d="m80 9 2.4 4.4L87 16l-4.6 1.9L80 23l-1.6-5.1L74 16l4.4-2.6Z" fill="#e98275" stroke="#393229" stroke-width="1.2" stroke-linejoin="round"/>
+                  <circle cx="94" cy="34" r="2" fill="#f4bd4d"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+
+          <div class="sticker-wrap" data-sticker="flower" data-x="328" data-y="326" style="--w:60px; --rot:7deg; --float-dur:7.1s; --float-delay:.8s;">
+            <button class="sticker" type="button" aria-label="小花贴纸，拖动可以移动，点击会左右摇摆" title="拖动我 · 点一下会摇摆">
+              <span class="sticker-art">
+                <svg viewBox="0 0 72 94" aria-hidden="true">
+                  <path d="M35 57c1 13-2 23-7 32" fill="none" stroke="#fffaf0" stroke-width="9" stroke-linecap="round"/>
+                  <path d="M35 57c1 13-2 23-7 32" fill="none" stroke="#789474" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M30 76c-9-3-14-9-15-16 8 0 14 5 15 16Z" fill="#fffaf0" stroke="#fffaf0" stroke-width="6" stroke-linejoin="round"/>
+                  <path d="M30 76c-9-3-14-9-15-16 8 0 14 5 15 16Z" fill="#a9c7a7" stroke="#393229" stroke-width="1.6" stroke-linejoin="round"/>
+                  <circle cx="36" cy="34" r="27" fill="#fffaf0"/>
+                  <g stroke="#393229" stroke-width="1.6">
+                    <ellipse cx="36" cy="14" rx="9" ry="12" fill="#f2b7ae"/>
+                    <ellipse cx="36" cy="54" rx="9" ry="12" fill="#f2b7ae"/>
+                    <ellipse cx="16" cy="34" rx="12" ry="9" fill="#f2b7ae"/>
+                    <ellipse cx="56" cy="34" rx="12" ry="9" fill="#f2b7ae"/>
+                    <ellipse cx="22" cy="20" rx="10" ry="9" fill="#f8c9bd" transform="rotate(-38 22 20)"/>
+                    <ellipse cx="50" cy="48" rx="10" ry="9" fill="#f8c9bd" transform="rotate(-38 50 48)"/>
+                  </g>
+                  <circle cx="36" cy="34" r="10" fill="#f4bd4d" stroke="#393229" stroke-width="1.7"/>
+                  <circle cx="32.5" cy="32" r="1.1" fill="#393229"/>
+                  <circle cx="39.5" cy="32" r="1.1" fill="#393229"/>
+                  <path d="M32.5 37c2.2 2 4.8 2 7 0" fill="none" stroke="#393229" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+
+          <div class="sticker-wrap" data-sticker="star" data-x="928" data-y="142" style="--w:46px; --rot:9deg; --float-dur:5.8s; --float-delay:1.5s;">
+            <button class="sticker" type="button" aria-label="星星贴纸，拖动可以移动，点击会左右摇摆" title="拖动我 · 点一下会摇摆">
+              <span class="sticker-art">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                  <path d="m32 5 7.4 16.3L57 23.6 45 35.1l3 18.2L32 44.6 16 53.3l3-18.2L7 23.6l17.6-2.3Z" fill="#fffaf0" stroke="#fffaf0" stroke-width="8" stroke-linejoin="round"/>
+                  <path d="m32 5 7.4 16.3L57 23.6 45 35.1l3 18.2L32 44.6 16 53.3l3-18.2L7 23.6l17.6-2.3Z" fill="#f4bd4d" stroke="#393229" stroke-width="1.8" stroke-linejoin="round"/>
+                  <circle cx="27" cy="29" r="1.2" fill="#393229"/>
+                  <circle cx="38" cy="29" r="1.2" fill="#393229"/>
+                  <path d="M27.5 35c2.6 2.1 5.6 2.1 8.2 0" fill="none" stroke="#393229" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="23" cy="35" r="2.2" fill="#e98275" opacity=".7"/>
+                  <circle cx="42" cy="35" r="2.2" fill="#e98275" opacity=".7"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+
+          <div class="sticker-wrap" data-sticker="heart" data-x="1042" data-y="388" style="--w:46px; --rot:-9deg; --float-dur:5.4s; --float-delay:.5s;">
+            <button class="sticker" type="button" aria-label="爱心贴纸，拖动可以移动，点击会左右摇摆" title="拖动我 · 点一下会摇摆">
+              <span class="sticker-art">
+                <svg viewBox="0 0 66 62" aria-hidden="true">
+                  <path d="M33 56C11 41 4 27 12 16c7-10 19-7 21 4 3-11 15-14 22-4 8 11 1 25-22 40Z" fill="#fffaf0" stroke="#fffaf0" stroke-width="9" stroke-linejoin="round"/>
+                  <path d="M33 56C11 41 4 27 12 16c7-10 19-7 21 4 3-11 15-14 22-4 8 11 1 25-22 40Z" fill="#e98275" stroke="#393229" stroke-width="1.9" stroke-linejoin="round"/>
+                  <path d="M17 22c-2 4-1 8 1 11" fill="none" stroke="#ffd9cb" stroke-width="2.4" stroke-linecap="round"/>
+                  <circle cx="27" cy="30" r="1.2" fill="#393229"/>
+                  <circle cx="40" cy="30" r="1.2" fill="#393229"/>
+                  <path d="M28 36c2.5 2.2 5.5 2.2 8 0" fill="none" stroke="#393229" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+
+          <div class="sticker-wrap" data-sticker="balloon" data-x="1168" data-y="366" style="--w:54px; --rot:5deg; --float-dur:6.8s; --float-delay:1s;">
+            <button class="sticker" type="button" aria-label="气球贴纸，拖动可以移动，点击会左右摇摆" title="拖动我 · 点一下会摇摆">
+              <span class="sticker-art">
+                <svg viewBox="0 0 64 108" aria-hidden="true">
+                  <ellipse cx="32" cy="29" rx="19" ry="23" fill="#fffaf0" stroke="#fffaf0" stroke-width="9"/>
+                  <ellipse cx="32" cy="29" rx="19" ry="23" fill="#f2c35b" stroke="#393229" stroke-width="1.9"/>
+                  <path d="m32 51-4 6h8Z" fill="#f4bd4d" stroke="#393229" stroke-width="1.4" stroke-linejoin="round"/>
+                  <path d="M32 58c-8 13 8 18 0 32" fill="none" stroke="#393229" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M23 20c-2 5-1 9 1 12" fill="none" stroke="#fff1bb" stroke-width="2.2" stroke-linecap="round"/>
+                  <circle cx="27" cy="28" r="1.1" fill="#393229"/>
+                  <circle cx="37" cy="28" r="1.1" fill="#393229"/>
+                  <path d="M28 33c2.4 2 5.2 2 7.6 0" fill="none" stroke="#393229" stroke-width="1.4" stroke-linecap="round"/>
+                  <path d="m49 54 1.6 3 3.4.5-2.5 2.3.6 3.4-3.1-1.6-3 1.6.5-3.4-2.4-2.3 3.3-.5Z" fill="#e98275"/>
+                  <circle cx="12" cy="56" r="2" fill="#a9c7b4"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+
+          <div class="sticker-wrap" data-sticker="cloud" data-x="414" data-y="746" style="--w:82px; --rot:-4deg; --float-dur:7.8s; --float-delay:.4s;">
+            <button class="sticker" type="button" aria-label="云朵贴纸，拖动可以移动，点击会左右摇摆" title="拖动我 · 点一下会摇摆">
+              <span class="sticker-art">
+                <svg viewBox="0 0 96 66" aria-hidden="true">
+                  <path d="M22 51C12 51 6 44 6 36c0-8 7-14 15-13 2-10 10-17 21-15 9 1 15 8 16 17 10-2 18 4 18 13 0 8-8 14-17 14Z" fill="#fffaf0" stroke="#fffaf0" stroke-width="10" stroke-linejoin="round"/>
+                  <path d="M22 51C12 51 6 44 6 36c0-8 7-14 15-13 2-10 10-17 21-15 9 1 15 8 16 17 10-2 18 4 18 13 0 8-8 14-17 14Z" fill="#c7dde7" stroke="#393229" stroke-width="1.9" stroke-linejoin="round"/>
+                  <path d="M31 34c1-2 2-3 4-3s3 1 4 3M53 34c1-2 2-3 4-3s3 1 4 3" fill="none" stroke="#393229" stroke-width="1.6" stroke-linecap="round"/>
+                  <path d="M38 43c5 4 11 4 16 0" fill="none" stroke="#393229" stroke-width="1.6" stroke-linecap="round"/>
+                  <circle cx="26" cy="41" r="2.4" fill="#f2b7ae" opacity=".65"/>
+                  <circle cx="67" cy="41" r="2.4" fill="#f2b7ae" opacity=".65"/>
+                  <path d="m77 50 .8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8Z" fill="#f4bd4d" stroke="#393229" stroke-width=".9"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+
+          <div class="sticker-wrap" data-sticker="rainbow" data-x="382" data-y="664" style="--w:70px; --rot:8deg; --float-dur:6.6s; --float-delay:1.3s;">
+            <button class="sticker" type="button" aria-label="彩虹贴纸，拖动可以移动，点击会左右摇摆" title="拖动我 · 点一下会摇摆">
+              <span class="sticker-art">
+                <svg viewBox="0 0 102 68" aria-hidden="true">
+                  <path d="M22 56C22 35 35 20 51 20s29 15 29 36" fill="none" stroke="#fffaf0" stroke-width="15" stroke-linecap="round"/>
+                  <path d="M22 56C22 35 35 20 51 20s29 15 29 36" fill="none" stroke="#e98275" stroke-width="10" stroke-linecap="round"/>
+                  <path d="M27 56C27 39 38 27 51 27s24 12 24 29" fill="none" stroke="#fffaf0" stroke-width="13" stroke-linecap="round"/>
+                  <path d="M27 56C27 39 38 27 51 27s24 12 24 29" fill="none" stroke="#f4bd4d" stroke-width="8" stroke-linecap="round"/>
+                  <path d="M31 56C31 42 40 33 51 33s20 9 20 23" fill="none" stroke="#fffaf0" stroke-width="11" stroke-linecap="round"/>
+                  <path d="M31 56C31 42 40 33 51 33s20 9 20 23" fill="none" stroke="#8eb8c6" stroke-width="6" stroke-linecap="round"/>
+                  <path d="M9 53c0-6 5-10 11-9 1-5 6-8 11-7 6 1 8 5 8 8 5-1 9 2 9 6 0 4-4 7-9 7H18c-5 0-9-2-9-5Z" fill="#fffaf0" stroke="#393229" stroke-width="1.5" stroke-linejoin="round"/>
+                  <path d="M57 36c0-4 4-7 8-6 1-4 5-6 9-5 4 1 6 4 6 7 4-1 6 2 6 5 0 3-3 5-7 5H66c-4 0-9-2-9-6Z" fill="#fffaf0" stroke="#393229" stroke-width="1.5" stroke-linejoin="round"/>
+                  <circle cx="20" cy="20" r="1.6" fill="#e98275"/>
+                  <circle cx="87" cy="27" r="1.5" fill="#f4bd4d"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 装饰 -->
+        <div class="deco coffee-ring" aria-hidden="true"></div>
+        <div class="deco scribble-star scribble-star--one" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M20 3c1 12 4 15 16 17-12 2-15 5-16 17-1-12-4-15-16-17C16 18 19 15 20 3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="deco scribble-star scribble-star--two" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M20 3c1 12 4 15 16 17-12 2-15 5-16 17-1-12-4-15-16-17C16 18 19 15 20 3Z" fill="currentColor"/></svg>
+        </div>
+        <div class="deco little-note" aria-hidden="true">
+          <span class="tape"></span>
+          <b data-bind="ui.movableTitle" data-multiline>everything here<br>is movable.</b>
+          <span data-bind="ui.movableSub">make yourself at home ;)</span>
+          <svg viewBox="0 0 90 38"><path d="M4 7c25 17 47 21 74 13M71 13l9 7-10 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="deco care-stamp" aria-hidden="true">
+          <span>MADE</span><b>with care</b><span>&amp; coffee</span>
+          <i>✦</i>
+        </div>
+        <div class="deco paperclip" aria-hidden="true">
+          <svg viewBox="0 0 36 70"><path d="M23 57c0 8-11 8-11 0V13c0-7 9-7 9 0v39c0 4-5 4-5 0V23" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        </div>
+
+        <div class="board-hint" id="boardHint" aria-hidden="true">
+          <span class="hint-hand">☝</span>
+          <span><b>drag</b> to rearrange <i>/</i> <b>click</b> to peek</span>
+        </div>
+
+        <div class="cursor-tip" id="cursorTip" aria-hidden="true">
+          <span>grab &amp; move</span>
+          <b>click to open</b>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- 详情面板 -->
+  <div class="detail-layer" id="detailLayer" hidden>
+    <div class="detail-scrim" id="detailScrim"></div>
+    <section class="detail-dialog" id="detailDialog" role="dialog" aria-modal="true" aria-labelledby="detailTitle" tabindex="-1">
+      <div class="detail-paper" id="detailPaper">
+        <div class="detail-tape" aria-hidden="true"></div>
+        <button class="detail-close" id="detailClose" type="button" aria-label="关闭详情">
+          <svg viewBox="0 0 22 22" aria-hidden="true"><path d="M5 5l12 12M17 5 5 17"/></svg>
+          <span>CLOSE</span>
+        </button>
+        <header class="detail-head">
+          <span class="detail-index" id="detailIndex">01</span>
+          <div class="detail-heading">
+            <p class="detail-kicker" id="detailKicker">A LITTLE INTRODUCTION</p>
+            <h2 id="detailTitle">Hello, I'm Huang.</h2>
+          </div>
+          <span class="detail-stamp" id="detailStamp">hello!</span>
+        </header>
+        <div class="detail-body" id="detailBody"></div>
+        <footer class="detail-foot">
+          <span><span id="detailBrandFooter">LITTLE'S INTRODUCTION</span> · <span id="detailFootIndex">01</span> / 05</span>
+          <span>press <kbd>ESC</kbd> to put it back</span>
+        </footer>
+      </div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- 点击作品照片后的放大查看 -->
+  <div class="image-lightbox" id="imageLightbox" hidden>
+    <div class="image-lightbox__scrim" data-lightbox-close></div>
+    <figure class="image-lightbox__frame" id="lightboxFrame" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+      <button class="image-lightbox__close" id="lightboxClose" type="button" aria-label="关闭大图">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 4 12 12M16 4 4 16"/></svg>
+        <span>CLOSE</span>
+      </button>
+      <div class="image-lightbox__stage">
+        <img id="lightboxImage" alt="">
+      </div>
+      <figcaption class="image-lightbox__caption">
+        <strong id="lightboxTitle"></strong>
+        <span id="lightboxMeta"></span>
+        <em>点击背景或按 ESC 关闭</em>
+      </figcaption>
+    </figure>
+  </div>
+
+  <!-- 内容管理模式 -->
+  <button class="studio-fab" id="studioFab" type="button" aria-controls="studio" aria-expanded="false" aria-label="内容管理已锁定，需要密码" title="内容管理已锁定">
+    <span class="studio-fab__icon" aria-hidden="true">
+      <svg viewBox="0 0 20 20"><path d="m12.8 3.5 3.7 3.7M4 16l1-4.4L13.6 3a1.4 1.4 0 0 1 2 0l1.4 1.4a1.4 1.4 0 0 1 0 2L8.4 15 4 16Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+    </span>
+    <span>内容管理</span>
+    <span class="studio-fab__lock" aria-hidden="true">
+      <svg viewBox="0 0 16 16"><rect x="3" y="7" width="10" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 7V5.2a3 3 0 0 1 6 0V7" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+    </span>
+  </button>
+
+  <aside class="studio" id="studio" aria-label="内容管理面板" aria-hidden="true">
+    <header class="studio-head">
+      <div class="studio-head__row">
+        <span class="studio-eyebrow"><i aria-hidden="true"></i> CONTENT MODE · 编辑中</span>
+        <button class="studio-close" id="studioClose" type="button" aria-label="关闭内容管理">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 4 12 12M16 4 4 16"/></svg>
+        </button>
+      </div>
+      <h2>内容管理</h2>
+      <p>修改文字、图片和字号，页面会实时更新。字号按钮在每个字段右侧，A− / A+ 以 5% 为一步。</p>
+      <div class="studio-meta">
+        <span class="studio-meta__state"><i aria-hidden="true"></i> 编辑模式</span>
+        <span id="studioSaveState">已自动保存</span>
+      </div>
+      <div class="studio-file-warning" id="studioFileWarning" hidden>
+        当前是本地文件模式，改动只保存在此浏览器。
+        <a href="http://127.0.0.1:4173/" target="_blank" rel="noopener">建议在本地服务中编辑 →</a>
+      </div>
+    </header>
+    <nav class="studio-tabs" id="studioTabs" aria-label="内容分区"></nav>
+    <div class="studio-body" id="studioBody"></div>
+    <footer class="studio-foot">
+      <span class="studio-foot__hint">完成后请先导出备份</span>
+      <button class="studio-preview-btn" id="studioPreview" type="button">
+        预览网站 <span aria-hidden="true">→</span>
+      </button>
+    </footer>
+  </aside>
+
+  <div class="studio-toast" id="studioToast" role="status" aria-live="polite"></div>
+
+  <!-- 内容管理解锁 -->
+  <div class="lock-screen" id="lockScreen" hidden>
+    <div class="lock-screen__scrim" data-lock-close></div>
+    <form class="lock-card" id="lockForm" role="dialog" aria-modal="true" aria-labelledby="lockTitle">
+      <button class="lock-card__close" id="lockClose" type="button" aria-label="关闭">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 4 12 12M16 4 4 16"/></svg>
+      </button>
+      <span class="lock-card__icon" aria-hidden="true">
+        <svg viewBox="0 0 28 28"><rect x="5" y="12" width="18" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9 12V8.8a5 5 0 0 1 10 0V12" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="14" cy="18" r="1.5" fill="currentColor"/></svg>
+      </span>
+      <p class="lock-card__kicker">CONTENT MODE · LOCKED</p>
+      <h2 id="lockTitle">内容管理已锁定</h2>
+      <p class="lock-card__desc">输入密码后才能修改网站内容。</p>
+      <label class="lock-card__label" for="lockPassword">密码</label>
+      <div class="lock-card__row">
+        <input id="lockPassword" type="password" inputmode="numeric" autocomplete="off" maxlength="8" placeholder="输入密码" aria-describedby="lockError">
+        <button type="submit">解锁</button>
+      </div>
+      <p class="lock-card__error" id="lockError" role="alert">密码不对，请再试一次。</p>
+      <button class="lock-card__cancel" id="lockCancel" type="button">取消</button>
+    </form>
+  </div>
+
+  <aside class="portrait-note" aria-label="横屏提示">
+    <span class="portrait-note__icon" aria-hidden="true">
+      <svg viewBox="0 0 80 80">
+        <rect x="24" y="10" width="33" height="58" rx="7" fill="none" stroke="currentColor" stroke-width="2.4" transform="rotate(12 40 40)"/>
+        <path d="M14 50c-4 10-2 17 6 21M50 12c8 4 11 10 11 15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="m16 40-4 9 9 1M61 26l1-10-9 1" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+    <h2>请横屏浏览</h2>
+    <p>这块洞洞板为电脑宽屏设计。<br>把手机横过来，或换一台更大的屏幕。</p>
+    <span class="portrait-note__tip">BEST VIEWED LANDSCAPE · 1440 × 860</span>
+  </aside>
+
+  <!-- 共享 SVG 图形 -->
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#e8e4da"/>
+        <stop offset=".3" stop-color="#aaa49a"/>
+        <stop offset=".55" stop-color="#f2eee6"/>
+        <stop offset=".8" stop-color="#8d877d"/>
+        <stop offset="1" stop-color="#cbc5bb"/>
+      </linearGradient>
+      <linearGradient id="metalDark" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#7f7a71"/>
+        <stop offset=".45" stop-color="#d6d0c5"/>
+        <stop offset=".7" stop-color="#858078"/>
+        <stop offset="1" stop-color="#b4aea3"/>
+      </linearGradient>
+
+      <symbol id="peg-hook" viewBox="0 0 52 58">
+        <ellipse cx="26" cy="5" rx="9" ry="3" fill="#4c4438" opacity=".35"/>
+        <rect x="21" y="0" width="10" height="13" rx="3.5" fill="url(#metalDark)" stroke="#554f46" stroke-width="1.2"/>
+        <rect x="23" y="2" width="2" height="8" rx="1" fill="#f4f0e8" opacity=".7"/>
+        <path d="M26 11v7" stroke="#6e685f" stroke-width="2.6"/>
+        <circle cx="26" cy="30" r="14" fill="none" stroke="#575149" stroke-width="6.5"/>
+        <circle cx="26" cy="30" r="14" fill="none" stroke="url(#metal)" stroke-width="4"/>
+        <circle cx="26" cy="30" r="8" fill="none" stroke="#f0ece4" stroke-width="1" opacity=".55"/>
+        <path d="M26 44v7" stroke="#777168" stroke-width="2.4"/>
+        <rect x="22" y="49" width="8" height="5" rx="2" fill="url(#metal)" stroke="#5c564d" stroke-width="1"/>
+      </symbol>
+
+      <symbol id="avatar-portrait" viewBox="0 0 120 120">
+        <rect width="120" height="120" fill="#d8e5d5"/>
+        <path d="M8 120c1-22 18-35 40-35h24c22 0 39 13 40 35Z" fill="#365d59"/>
+        <path d="M50 82h20v18c-5 5-15 5-20 0Z" fill="#d99c7d"/>
+        <path d="M43 42c0-19 10-29 22-29 16 0 24 12 24 29v17c0 17-10 30-24 30S43 76 43 59Z" fill="#e9b294"/>
+        <path d="M40 54c-1-23 9-38 28-38 19 0 28 13 26 35-5-5-8-10-10-19-8 10-26 14-44 12Z" fill="#43362e"/>
+        <path d="M42 50c-6 2-7 14-2 18M89 50c6 2 7 14 2 18" fill="none" stroke="#e9b294" stroke-width="6" stroke-linecap="round"/>
+        <circle cx="58" cy="57" r="7" fill="#fbf2df" stroke="#4a3c32" stroke-width="2"/>
+        <circle cx="83" cy="57" r="7" fill="#fbf2df" stroke="#4a3c32" stroke-width="2"/>
+        <path d="M65 56h11" stroke="#4a3c32" stroke-width="2"/>
+        <circle cx="59" cy="58" r="2.1" fill="#3d312a"/>
+        <circle cx="82" cy="58" r="2.1" fill="#3d312a"/>
+        <path d="M55 49c3-2 6-2 9 0M79 49c3-2 6-2 8 0" fill="none" stroke="#5b4436" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M68 66c1 2 3 3 5 2" fill="none" stroke="#c07b62" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M62 75c5 4 11 4 16 0" fill="none" stroke="#8f4d42" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="50" cy="69" r="4.5" fill="#e79e87" opacity=".5"/>
+        <circle cx="91" cy="69" r="4" fill="#e79e87" opacity=".5"/>
+        <path d="M34 105c8 3 15 3 22 1M68 106c8 2 15 1 21-2" stroke="#e9b294" stroke-width="5" stroke-linecap="round"/>
+        <path d="M52 112h17" stroke="#d7c5a4" stroke-width="1.5" stroke-dasharray="2 3"/>
+        <circle cx="94" cy="43" r="2" fill="#f2c35b"/>
+        <path d="M21 29l2 5 5 2-5 2-2 5-2-5-5-2 5-2Z" fill="#f2c35b" opacity=".9"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <script src="site-config.js"></script>
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+  <script src="editor.js"></script>
+</body>
+</html>
